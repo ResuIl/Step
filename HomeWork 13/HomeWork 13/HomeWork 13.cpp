@@ -11,7 +11,7 @@ public:
     void yemekYe();
 };
 
-class mashinimVar: TemelIshler {
+class mashinimVar: public TemelIshler {
 public:
     void yuxudanDur();
     void paltarGeyin();
