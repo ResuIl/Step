@@ -2,6 +2,8 @@
 using namespace std;
 
 class TemelIshler {
+    int yashim;
+    float kilom;
 public:
     void yuxudanDur();
     void paltarGeyin();
