@@ -20,7 +20,7 @@ public:
 
 	void setLatitude(string latitude) { _latitude = latitude; }
 
-	string getLocation() { return _longitude, _latitude; }
+	string getLocation() { return _longitude + _latitude; }
 };
 
 class City {
