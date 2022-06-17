@@ -106,7 +106,7 @@ class BinarySearchTree
 {
 	struct Node
 	{
-		City key;
+		M key;
 		Node* left, * right;
 
 		Node(City key) : key(key), left(), right() {}
