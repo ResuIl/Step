@@ -1,0 +1,4 @@
+﻿  HomeWork 15.cpp
+C:\Users\Resul\Desktop\StepCPPS2\HomeWork 15\HomeWork 15\HomeWork 15.cpp(72,56): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\Resul\Desktop\StepCPPS2\HomeWork 15\HomeWork 15\HomeWork 15.cpp(74,62): warning C4305: 'argument': truncation from 'double' to 'float'
+  HomeWork 15.vcxproj -> C:\Users\Resul\Desktop\StepCPPS2\HomeWork 15\x64\Debug\HomeWork 15.exe
