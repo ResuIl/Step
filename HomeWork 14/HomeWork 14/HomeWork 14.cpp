@@ -118,6 +118,5 @@ int main()
     Engine engine(1, "Resul", 2);
     Car car(1, "BMW", "I30", engine, true);
     
-    cars.push(car);
-    car.print();
+    Depo.cars.push(car);
 }
