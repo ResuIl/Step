@@ -107,11 +107,17 @@ public:
 
 };
 
+class Depo {
+     stack<Car> cars;
+     stack<Airplane> airplanes;
+     stack<Ship> ships;
+};
+
 int main()
 {
     Engine engine(1, "Resul", 2);
     Car car(1, "BMW", "I30", engine, true);
-    stack<Car> cars;
+    
     cars.push(car);
     car.print();
 }
