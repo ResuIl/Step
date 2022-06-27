@@ -1,0 +1,4 @@
+﻿  HomeWork 16.cpp
+C:\Users\Resul\Desktop\StepCPPS2\HomeWork 16\HomeWork 16\HomeWork 16.cpp(135,1): warning C4267: 'return': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\Resul\Desktop\StepCPPS2\HomeWork 16\HomeWork 16\HomeWork 16.cpp(203,13): warning C4326: return type of 'main' should be 'int' instead of 'void'
+  HomeWork 16.vcxproj -> C:\Users\Resul\Desktop\StepCPPS2\HomeWork 16\x64\Debug\HomeWork 16.exe
