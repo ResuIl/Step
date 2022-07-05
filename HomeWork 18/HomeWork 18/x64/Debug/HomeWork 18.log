@@ -1,0 +1,4 @@
+﻿  HomeWork 18.cpp
+C:\Users\Resul\Desktop\StepCPPS2\HomeWork 18\HomeWork 18\HomeWork 18.cpp(54,1): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\Resul\Desktop\StepCPPS2\HomeWork 18\HomeWork 18\HomeWork 18.cpp(72,1): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+  HomeWork 18.vcxproj -> C:\Users\Resul\Desktop\StepCPPS2\HomeWork 18\x64\Debug\HomeWork 18.exe
