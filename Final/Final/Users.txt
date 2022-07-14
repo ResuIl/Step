@@ -1,0 +1,2 @@
+resul:123:50:admin
+Islam:1234:60
