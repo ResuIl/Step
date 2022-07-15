@@ -11,7 +11,8 @@ using namespace std;
 #include "Users.h"
 #include "Quizes.h"
 
-// Load Data W.I.P
+// LeaderBoard Load Data
+// Scores
 
 class Essentials {
 private:
