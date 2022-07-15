@@ -11,8 +11,7 @@ using namespace std;
 #include "Users.h"
 #include "Quizes.h"
 
-// LeaderBoard Load Data
-// Scores
+// Load Data W.I.P
 
 class Essentials {
 private:
@@ -36,6 +35,7 @@ public:
     }
 
     void CreateQuiz() {
+        char flager = 'd';
         string filename = "Quiz" + to_string(++quizCount) + ".txt";
         ifstream fin(filename, ios::in);
 
@@ -54,6 +54,7 @@ public:
             fout << question << endl;
         jump:
             bool active = true;
+            
             cout << ">> New Answer\n" << "   Save\n" << "   Cancel";
             while (active) {
                 switch (_getch()) {
@@ -95,13 +96,19 @@ public:
                 }
                 else {
                     quiz.addAnswer(answer);
+                    if (flager == 'p') {
+                        fout << answer << endl;
+                        system("cls");
+                        goto jump;
+                    }
                     cout << "is it correct answer? Type: y/n" << endl;
-                    char flager;
+                    
                     cin >> flager;
                     if (flager == 'y') {
                         quiz.setCorrectAnswer(answer);
                         fout << answer << ":correct" << endl;
                         system("cls");
+                        flager = 'p';
                         goto jump;
                     }
                     fout << answer << endl;
