@@ -36,7 +36,7 @@ public:
 
     void writeToFile(string username, string password) {
 
-        ofstream fout("Users.txt", ios::out);
+        ofstream fout("Users.txt", ios_base::app);
 
         if (!fout)
             throw new exception("File can not created");
@@ -46,7 +46,7 @@ public:
             throw new exception("File can not opened");
         }
 
-        fout << username << ":" << password << endl;
+        fout << username << ":" << password << ":0" << endl;
 
         fout.close();
 
@@ -55,7 +55,7 @@ public:
     void CreateQuiz() {
         string filename = "Quiz" + to_string(++quizCount) + ".txt";
         ifstream fin(filename, ios::in);
-        
+
         if (!fin) { // File Can not Find
             ofstream fout(filename, ios::out);
 
@@ -69,74 +69,74 @@ public:
             getline(cin, question);
             Quizes quiz(question);
             fout << question << endl;
-            jump:
-                bool active = true;
-                cout << ">> New Answer\n" << "   Save\n" << "   Cancel";  
-                while (active) {
-                    switch (_getch()) {
-                    case 72:
-                        if (quizMenu != 0)
-                            quizMenu--;
-                        system("cls");
-                        break;
-                    case 80:
-                        if (quizMenu + 1 < 3)
-                            quizMenu++;
-                        system("cls");
-                        break;
-                    case '\r':
-                        active = false;
-                        break;
-                    default:
-                        system("cls");
-                        break;
-                    }
-                    if (active) {
-                        if (quizMenu == 0)
-                            cout << question << "\n>> New Answer\n" << "   Save\n" << "   Cancel";
-                        else if (quizMenu == 1) 
-                            cout << question << "\n   New Answer\n" << ">> Save\n" << "   Cancel";
-                        else
-                            cout << question << "\n   New Answer\n" << "   Save\n" << ">> Cancel";
-                    }
+        jump:
+            bool active = true;
+            cout << ">> New Answer\n" << "   Save\n" << "   Cancel";
+            while (active) {
+                switch (_getch()) {
+                case 72:
+                    if (quizMenu != 0)
+                        quizMenu--;
+                    system("cls");
+                    break;
+                case 80:
+                    if (quizMenu + 1 < 3)
+                        quizMenu++;
+                    system("cls");
+                    break;
+                case '\r':
+                    active = false;
+                    break;
+                default:
+                    system("cls");
+                    break;
                 }
-                if (quizMenu == 0) {
-                    string answer;
-                    cout << "\nIf you want go back type 'goback'" << endl;
-                    cout << "Enter Answer: ";
-                    cin >> answer;
-                    if (answer == "goback") {
-                        system("cls");
-                        cout << ">> New Answer\n" << "   Save\n";
-                        active = true;
-                    }
-                    else {
-                        fout << answer << endl;
-                        quiz.addAnswer(answer);
-                        cout << "is it correct answer? Type: y/n" << endl;
-                        char flager;
-                        cin >> flager;
-                        if (flager == 'y')
-                            quiz.setCorrectAnswer(answer);
-                        system("cls");
-                        goto jump;
-                    }     
+                if (active) {
+                    if (quizMenu == 0)
+                        cout << question << "\n>> New Answer\n" << "   Save\n" << "   Cancel";
+                    else if (quizMenu == 1)
+                        cout << question << "\n   New Answer\n" << ">> Save\n" << "   Cancel";
+                    else
+                        cout << question << "\n   New Answer\n" << "   Save\n" << ">> Cancel";
                 }
-                else if (quizMenu == 2) {
-                    fout.close();
-                    fin.close();
-                    cout << remove(filename.c_str());
-                    --quizCount;
+            }
+            if (quizMenu == 0) {
+                string answer;
+                cout << "\nIf you want go back type 'goback'" << endl;
+                cout << "Enter Answer: ";
+                cin >> answer;
+                if (answer == "goback") {
+                    system("cls");
+                    cout << ">> New Answer\n" << "   Save\n";
+                    active = true;
                 }
                 else {
-                    readyQuizes.push_back(quiz);
-                    cout << "Quiz Successfully Added" << endl;
+                    fout << answer << endl;
+                    quiz.addAnswer(answer);
+                    cout << "is it correct answer? Type: y/n" << endl;
+                    char flager;
+                    cin >> flager;
+                    if (flager == 'y')
+                        quiz.setCorrectAnswer(answer);
+                    system("cls");
+                    goto jump;
                 }
+            }
+            else if (quizMenu == 2) {
+                fout.close();
+                fin.close();
+                cout << remove(filename.c_str());
+                --quizCount;
+            }
+            else {
+                readyQuizes.push_back(quiz);
+                cout << "Quiz Successfully Added" << endl;
+            }
         }
         else {
             ++quizCount;
             CreateQuiz();
-        } 
+        }
     }
 
     void LoadDatas() {
@@ -153,23 +153,25 @@ public:
 
         while (!fin.eof())
         {
+            try {
+                getline(fin, data);
+                string delimiter = ":";
+                string username = data.substr(0, data.find(delimiter));
+                string password = data.substr(username.length() + delimiter.length()).substr(0, data.substr(username.length() + delimiter.length()).find(delimiter));
+                string score = data.substr(username.length() + password.length() + delimiter.length() + 1).substr(0, data.substr(username.length() + password.length() + delimiter.length() + 1).find(delimiter));
+                string flag = data.erase(username.length(), data.find(delimiter) + delimiter.length());
+                string isAdmin = flag.substr(flag.find(delimiter) + 1, flag.length());
 
-            getline(fin, data);
-            string delimiter = ":";
-            string username = data.substr(0, data.find(delimiter));
-            string password = data.substr(username.length() + delimiter.length()).substr(0, data.substr(username.length() + delimiter.length()).find(delimiter));
-            string score = data.substr(username.length() + password.length() + delimiter.length() + 1).substr(0, data.substr(username.length() + password.length() + delimiter.length() + 1).find(delimiter));
-            string flag = data.erase(username.length(), data.find(delimiter) + delimiter.length());
-            string isAdmin = flag.substr(flag.find(delimiter) + 1, flag.length());
+                Users user(username, password);
+                user.setUserScore(stoi(score));
+                users.push_back(user);
 
-            Users user(username, password);
-            user.setUserScore(stoi(score));
-            users.push_back(user);
-
-            if (isAdmin == "admin") {
-                Admins admin(username, password);
-                admins.push_back(admin);
+                if (isAdmin == "admin") {
+                    Admins admin(username, password);
+                    admins.push_back(admin);
+                }
             }
+            catch (...) {}  
             
         }
         fin.close();
@@ -341,129 +343,69 @@ public:
         }
         system("cls");*/
 
-        main:
-            bool active = true;
-            selected = 0;
-            cout << ">> Login\n" << "   Sign UP\n" << "   Play As Guest\n" << "   Exit\n";
-            while (active) {
-                switch (_getch()) {
-                case 72:
-                    if (selected != 0)
-                        selected--;
-                    system("cls");
-                    break;
-                case 80:
-                    if (selected + 1 < 4)
-                        selected++;
-                    system("cls");
-                    break;
-                case '\r':
-                    if (selected == 3)
-                        exit(0);
-                    else
-                        active = false;
-                    break;
-                default:
-                    system("cls");
-                    break;
-                }
-                if (active) {
-                    if (selected == 0)
-                        cout << ">> Login\n" << "   Sign UP\n" << "   Play As Guest\n" << "   Exit\n";
-                    else if (selected == 1)
-                        cout << "   Login\n" << ">> Sign UP\n" << "   Play As Guest\n" << "   Exit\n";
-                    else if (selected == 2)
-                        cout << "   Login\n" << "   Sign UP\n" << ">> Play As Guest\n" << "   Exit\n";
-                    else 
-                        cout << "   Login\n" << "   Sign UP\n" << "   Play As Guest\n" << ">> Exit\n";
-                }
+    main:
+        bool active = true;
+        selected = 0;
+        cout << ">> Login\n" << "   Sign UP\n" << "   Play As Guest\n" << "   Exit\n";
+        while (active) {
+            switch (_getch()) {
+            case 72:
+                if (selected != 0)
+                    selected--;
+                system("cls");
+                break;
+            case 80:
+                if (selected + 1 < 4)
+                    selected++;
+                system("cls");
+                break;
+            case '\r':
+                if (selected == 3)
+                    exit(0);
+                else
+                    active = false;
+                break;
+            default:
+                system("cls");
+                break;
             }
+            if (active) {
+                if (selected == 0)
+                    cout << ">> Login\n" << "   Sign UP\n" << "   Play As Guest\n" << "   Exit\n";
+                else if (selected == 1)
+                    cout << "   Login\n" << ">> Sign UP\n" << "   Play As Guest\n" << "   Exit\n";
+                else if (selected == 2)
+                    cout << "   Login\n" << "   Sign UP\n" << ">> Play As Guest\n" << "   Exit\n";
+                else
+                    cout << "   Login\n" << "   Sign UP\n" << "   Play As Guest\n" << ">> Exit\n";
+            }
+        }
 
-            if (selected == 0) {
+        if (selected == 0) {
 
-                cout << "Enter Username: ";
-                cin >> tempUsername;
-                cout << "Enter Password: ";
-                string password;
-                cin >> password;
+            cout << "Enter Username: ";
+            cin >> tempUsername;
+            cout << "Enter Password: ";
+            string password;
+            cin >> password;
 
-                //Admins admin(username, password);
-                //admins.push_back(admin);
+            //Admins admin(username, password);
+            //admins.push_back(admin);
 
-                int len = users.size();
-                for (int i = 0; i < len; i++) {
-                    if (users[i].canLogin(tempUsername, password)) {
-                        int aLen = admins.size();
-                        for (int j = 0; j < aLen; j++) {
-                            if (admins[j].isAdmin(tempUsername, password)) {
+            int len = users.size();
+            for (int i = 0; i < len; i++) {
+                if (users[i].canLogin(tempUsername, password)) {
+                    int aLen = admins.size();
+                    for (int j = 0; j < aLen; j++) {
+                        if (admins[j].isAdmin(tempUsername, password)) {
 
-                                adminMain:
-                                    bool active = true;
-                                    selected = 0;
+                        adminMain:
+                            bool active = true;
+                            selected = 0;
 
-                                    system("cls");
-                                    cout << "Available Quizzes: " << quizCount << "\n>> Create Quiz\n" << "   Start Quiz\n" << "   Leader Board\n" << "   Exit\n";
-                                    while (active) {
-                                        switch (_getch()) {
-                                        case 72:
-                                            if (selected != 0)
-                                                selected--;
-                                            system("cls");
-                                            break;
-                                        case 80:
-                                            if (selected + 1 < 4)
-                                                selected++;
-                                            system("cls");
-                                            break;
-                                        case '\r':
-                                            if (selected == 3)
-                                                exit(0);
-                                            else
-                                                active = false;
-                                            break;
-                                        default: 
-                                            system("cls");
-                                            break;
-                                        }
-                                        if (active) {
-                                            if (selected == 0) 
-                                                cout << "Available Quizzes: " << quizCount << "\n>> Create Quiz\n" << "   Start Quiz\n" << "   Leader Board\n" << "   Exit\n";
-                                            else if (selected == 1)
-                                                cout << "Available Quizzes: " << quizCount << "\n   Create Quiz\n" << ">> Start Quiz\n" << "   Leader Board\n" << "   Exit\n";
-                                            else if (selected == 2)
-                                                cout << "Available Quizzes: " << quizCount << "\n   Create Quiz\n" << "   Start Quiz\n" << ">> Leader Board\n" << "   Exit\n";
-                                            else cout << "Available Quizzes: " << quizCount << "\n   Create Quiz\n" << "   Start Quiz\n" << "   Leader Board\n" << ">> Exit\n";
-                                        }  
-                                    }
-                                    
-                                    if (selected == 0) {
-                                        CreateQuiz();
-                                        goto adminMain;
-                                    }
-                                    else if (selected == 1) {
-                                        if (quizCount == 0) cout << "No Available Quizzes Find Please Create Quizzes" << endl;
-                                        else {
-                                            Play(true);
-                                            goto adminMain;
-                                        }
-                                    }
-                                    else if (selected == 2) {
-                                        ShowLeaderBoard();
-                                        goto adminMain;
-                                    }
-
-                                   
-                                    return;
-                                // ADMIN
-                            }
-                        }
-
-                        bool wFlag = true;
-                        selected = 0;
-                        system("cls");
-                        jump:
-                            cout << "Available Quizzes: " << quizCount << "\n>> Start Quiz\n" << "   Leader Board\n" << "   Exit\n";
-                            while (wFlag) {
+                            system("cls");
+                            cout << "Available Quizzes: " << quizCount << "\n>> Create Quiz\n" << "   Start Quiz\n" << "   Leader Board\n" << "   Exit\n";
+                            while (active) {
                                 switch (_getch()) {
                                 case 72:
                                     if (selected != 0)
@@ -476,77 +418,54 @@ public:
                                     system("cls");
                                     break;
                                 case '\r':
-                                    if (selected == 2)
+                                    if (selected == 3)
                                         exit(0);
                                     else
-                                        wFlag = false;
+                                        active = false;
                                     break;
                                 default:
                                     system("cls");
                                     break;
                                 }
-                                if (wFlag) {
+                                if (active) {
                                     if (selected == 0)
-                                        cout << "Available Quizzes: " << quizCount << "\n>> Start Quiz\n" << "   Leader Board\n" << "   Exit\n";
+                                        cout << "Available Quizzes: " << quizCount << "\n>> Create Quiz\n" << "   Start Quiz\n" << "   Leader Board\n" << "   Exit\n";
                                     else if (selected == 1)
-                                        cout << "Available Quizzes: " << quizCount << "\n   Start Quiz\n" << ">> Leader Board\n" << "   Exit\n";
-                                    else
-                                        cout << "Available Quizzes: " << quizCount << "\n   Start Quiz\n" << "   Leader Board\n" << ">> Exit\n";
+                                        cout << "Available Quizzes: " << quizCount << "\n   Create Quiz\n" << ">> Start Quiz\n" << "   Leader Board\n" << "   Exit\n";
+                                    else if (selected == 2)
+                                        cout << "Available Quizzes: " << quizCount << "\n   Create Quiz\n" << "   Start Quiz\n" << ">> Leader Board\n" << "   Exit\n";
+                                    else cout << "Available Quizzes: " << quizCount << "\n   Create Quiz\n" << "   Start Quiz\n" << "   Leader Board\n" << ">> Exit\n";
                                 }
                             }
 
                             if (selected == 0) {
-                                Play(false);
-                                wFlag = true;
-                                selected = 0;
-                                goto jump;
-                                // Start Quiz
+                                CreateQuiz();
+                                goto adminMain;
                             }
                             else if (selected == 1) {
-                                
+                                if (quizCount == 0) cout << "No Available Quizzes Find Please Create Quizzes" << endl;
+                                else {
+                                    Play(true);
+                                    goto adminMain;
+                                }
+                            }
+                            else if (selected == 2) {
                                 ShowLeaderBoard();
-
-                                wFlag = true;
-                                selected = 0;
-                                goto jump;
+                                goto adminMain;
                             }
 
-                        return;
+
+                            return;
+                            // ADMIN
+                        }
                     }
-                }
 
-                cout << "Username or Password incorrect!" << endl;
-            }
-            else if (selected == 1) {
-
-                cout << "Enter Username: ";
-                string username;
-                cin >> username;
-                cout << "Enter Password: ";
-                string password;
-                cin >> password;
-
-                if (!isUsernameValid(username)) {
-                    Users user(username, password);
-                    users.push_back(user);
-                    writeToFile(username, password);
-                    cout << "Succesfully Signed Up" << endl;
-                    goto main;
-                }
-                else {
-                    cout << "The username " << username << " is already taken." << endl;
-                    goto main;
-                }
-                // Sign up
-            }
-            else if (selected == 2) {    
-                system("cls");
-                guest:     
+                    bool wFlag = true;
                     selected = 0;
-                    active = true;
-                    cout << "Available Quizzes: " << quizCount << endl;
-                    cout << ">> Start Quiz\n" << "   Leader Board\n" << "   Exit\n";
-                    while (active) {
+                    system("cls");
+                jump:
+                    cout << "Available Quizzes: " << quizCount << "\n>> Start Quiz\n" << "   Leader Board\n" << "   Exit\n";
+                    while (wFlag) {
                         switch (_getch()) {
                         case 72:
                             if (selected != 0)
@@ -562,32 +481,115 @@ public:
                             if (selected == 2)
                                 exit(0);
                             else
-                                active = false;
+                                wFlag = false;
                             break;
-                        default: 
+                        default:
                             system("cls");
                             break;
                         }
-                        if (active) {
-                            if (selected == 0) 
+                        if (wFlag) {
+                            if (selected == 0)
                                 cout << "Available Quizzes: " << quizCount << "\n>> Start Quiz\n" << "   Leader Board\n" << "   Exit\n";
                             else if (selected == 1)
                                 cout << "Available Quizzes: " << quizCount << "\n   Start Quiz\n" << ">> Leader Board\n" << "   Exit\n";
                             else
                                 cout << "Available Quizzes: " << quizCount << "\n   Start Quiz\n" << "   Leader Board\n" << ">> Exit\n";
-                        }  
+                        }
                     }
 
                     if (selected == 0) {
-                        if (quizCount == 0) cout << "No Available Quizzes Found Please Contact Admin" << endl;
-                        else Play(true);
+                        Play(false);
+                        wFlag = true;
+                        selected = 0;
+                        goto jump;
+                        // Start Quiz
                     }
                     else if (selected == 1) {
+
                         ShowLeaderBoard();
-                        goto guest;
+
+                        wFlag = true;
+                        selected = 0;
+                        goto jump;
                     }
-                // Play As Guest
+
+                    return;
+                }
             }
+
+            cout << "Username or Password incorrect!" << endl;
+        }
+        else if (selected == 1) {
+
+            cout << "Enter Username: ";
+            string username;
+            cin >> username;
+            cout << "Enter Password: ";
+            string password;
+            cin >> password;
+
+            if (!isUsernameValid(username)) {
+                Users user(username, password);
+                users.push_back(user);
+                writeToFile(username, password);
+                cout << "Succesfully Signed Up" << endl;
+                goto main;
+            }
+            else {
+                cout << "The username " << username << " is already taken." << endl;
+                goto main;
+            }
+            // Sign up
+        }
+        else if (selected == 2) {
+            system("cls");
+        guest:
+            selected = 0;
+            active = true;
+            cout << "Available Quizzes: " << quizCount << endl;
+            cout << ">> Start Quiz\n" << "   Leader Board\n" << "   Exit\n";
+            while (active) {
+                switch (_getch()) {
+                case 72:
+                    if (selected != 0)
+                        selected--;
+                    system("cls");
+                    break;
+                case 80:
+                    if (selected + 1 < 4)
+                        selected++;
+                    system("cls");
+                    break;
+                case '\r':
+                    if (selected == 2)
+                        exit(0);
+                    else
+                        active = false;
+                    break;
+                default:
+                    system("cls");
+                    break;
+                }
+                if (active) {
+                    if (selected == 0)
+                        cout << "Available Quizzes: " << quizCount << "\n>> Start Quiz\n" << "   Leader Board\n" << "   Exit\n";
+                    else if (selected == 1)
+                        cout << "Available Quizzes: " << quizCount << "\n   Start Quiz\n" << ">> Leader Board\n" << "   Exit\n";
+                    else
+                        cout << "Available Quizzes: " << quizCount << "\n   Start Quiz\n" << "   Leader Board\n" << ">> Exit\n";
+                }
+            }
+
+            if (selected == 0) {
+                if (quizCount == 0) cout << "No Available Quizzes Found Please Contact Admin" << endl;
+                else Play(true);
+            }
+            else if (selected == 1) {
+                ShowLeaderBoard();
+                goto guest;
+            }
+            // Play As Guest
+        }
 
     }
 };
@@ -596,8 +598,8 @@ int main()
 {
     Essentials Thread;
 
-    Thread.LoadDatas();
+    //Thread.LoadDatas();
     //Thread.ShowLeaderBoard();
-    //Thread.Start();
+    Thread.Start();
 
 }
