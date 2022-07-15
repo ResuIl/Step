@@ -6,7 +6,13 @@ class Quizes {
     vector<string> answers;
 public:
 
+    Quizes() = default;
+
     Quizes(string quiz) : _quiz(quiz) {}
+
+    void setQuiz(string quiz) {
+        _quiz = quiz;
+    }
 
     void setCorrectAnswer(string correctAnswer) {
         _correctAnswer = correctAnswer;
