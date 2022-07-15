@@ -146,7 +146,6 @@ public:
             throw new exception("File can not find");
 
         if (!fin.is_open()) {
-            fin.close();
             throw new exception("File can not opened");
         }
 
@@ -154,18 +153,24 @@ public:
 
         while (!fin.eof())
         {
+
             getline(fin, data);
             string delimiter = ":";
-
             string username = data.substr(0, data.find(delimiter));
             string password = data.substr(username.length() + delimiter.length()).substr(0, data.substr(username.length() + delimiter.length()).find(delimiter));
-            string score = data.substr(username.length() + password.length() + delimiter.length() + 1).substr(0, data.substr(username.length() + password.length() + delimiter.length() + 1).find(delimiter));;
-            //string isAdmin = 
-            //cout << isAdmin << endl;
-            //string isAdmin = 
-            //Users user(username, password);
-            //user.setUserScore(stoi(score));
-            //users.push_back(user);
+            string score = data.substr(username.length() + password.length() + delimiter.length() + 1).substr(0, data.substr(username.length() + password.length() + delimiter.length() + 1).find(delimiter));
+            string flag = data.erase(username.length(), data.find(delimiter) + delimiter.length());
+            string isAdmin = flag.substr(flag.find(delimiter) + 1, flag.length());
+
+            Users user(username, password);
+            user.setUserScore(stoi(score));
+            users.push_back(user);
+
+            if (isAdmin == "admin") {
+                Admins admin(username, password);
+                admins.push_back(admin);
+            }
+            
         }
         fin.close();
 
