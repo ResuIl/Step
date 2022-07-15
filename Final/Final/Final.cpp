@@ -34,24 +34,6 @@ public:
         return false;
     }
 
-    void writeToFile(string username, string password) {
-
-        ofstream fout("Users.txt", ios_base::app);
-
-        if (!fout)
-            throw new exception("File can not created");
-
-        if (!fout.is_open()) {
-            fout.close();
-            throw new exception("File can not opened");
-        }
-
-        fout << username << ":" << password << ":0" << endl;
-
-        fout.close();
-
-    };
-
     void CreateQuiz() {
         string filename = "Quiz" + to_string(++quizCount) + ".txt";
         ifstream fin(filename, ios::in);
@@ -111,13 +93,17 @@ public:
                     active = true;
                 }
                 else {
-                    fout << answer << endl;
                     quiz.addAnswer(answer);
                     cout << "is it correct answer? Type: y/n" << endl;
                     char flager;
                     cin >> flager;
-                    if (flager == 'y')
+                    if (flager == 'y') {
                         quiz.setCorrectAnswer(answer);
+                        fout << answer << ":correct" << endl;
+                        system("cls");
+                        goto jump;
+                    }
+                    fout << answer << endl;
                     system("cls");
                     goto jump;
                 }
@@ -176,49 +162,70 @@ public:
         }
         fin.close();
 
-        //vector<string> Files;
-        //
-        //WIN32_FIND_DATA FindFileData;
-        //HANDLE hFindFile;
-        //LPCWSTR file = L"Quiz*.txt";
-        //
-        //hFindFile = FindFirstFile(file, &FindFileData);
-        //
-        //if (INVALID_HANDLE_VALUE != hFindFile) {
-        //    wstring ws(FindFileData.cFileName);
-        //    string str(ws.begin(), ws.end());
-        //    Files.push_back(str);
-        //}
-        //
-        //while (FindNextFile(hFindFile, &FindFileData)) {
-        //    wstring ws(FindFileData.cFileName);
-        //    string str(ws.begin(), ws.end());
-        //    Files.push_back(str);
-        //}
-        //
-        //int len = Files.size();
-        //
-        //for (int i = 0; i < len; i++) {
-        //    ifstream fin(Files[i], ios::in);
-        //
-        //    if (!fin)
-        //        throw new exception("File can not find");
-        //
-        //    if (!fin.is_open()) {
-        //        fin.close();
-        //        throw new exception("File can not opened");
-        //    }
-        //
-        //    string data;
-        //    
-        //
-        //    while (!fin.eof())
-        //    {
-        //        getline(fin, data);
-        //        cout << data << endl;
-        //    }
-        //    fin.close();     
-        //}
+        vector<string> Files;
+        
+        WIN32_FIND_DATA FindFileData;
+        HANDLE hFindFile;
+        LPCWSTR file = L"Quiz*.txt";
+        
+        hFindFile = FindFirstFile(file, &FindFileData);
+        
+        if (INVALID_HANDLE_VALUE != hFindFile) {
+            wstring ws(FindFileData.cFileName);
+            string str(ws.begin(), ws.end());
+            Files.push_back(str);
+        }
+        
+        while (FindNextFile(hFindFile, &FindFileData)) {
+            wstring ws(FindFileData.cFileName);
+            string str(ws.begin(), ws.end());
+            Files.push_back(str);
+        }
+        
+        int len = Files.size();
+        
+        for (int i = 0; i < len; i++) {
+            ifstream fin(Files[i], ios::in);
+        
+            if (!fin)
+                throw new exception("File can not find");
+        
+            if (!fin.is_open()) {
+                fin.close();
+                throw new exception("File can not opened");
+            }
+        
+            string data;
+            int pos = 0;
+            Quizes quiz;
+            while (!fin.eof())
+            {
+                getline(fin, data);
+                pos++;
+                if (pos == 1) {
+                    quiz.setQuiz(data);
+                    continue;
+                }
+                string delimiter = ":";
+                string answer = data.substr(0, data.find(delimiter));
+                string correctAnswer = data.substr(answer.length());
+
+                if (answer != "") {
+                    if (correctAnswer == ":correct") {
+                        quiz.addAnswer(answer);
+                        quiz.setCorrectAnswer(answer);
+                    }
+                    else {
+                        quiz.addAnswer(answer);
+                    }
+                }
+                
+            }
+
+            readyQuizes.push_back(quiz);
+
+            fin.close();     
+        }
     }
 
     void ShowLeaderBoard() {
@@ -530,8 +537,8 @@ public:
 
             if (!isUsernameValid(username)) {
                 Users user(username, password);
+                user.signUp();
                 users.push_back(user);
-                writeToFile(username, password);
                 cout << "Succesfully Signed Up" << endl;
                 goto main;
             }
