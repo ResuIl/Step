@@ -1,4 +1,4 @@
-﻿int Score = 0;
+int Score = 0;
 bool Flag = true;
 
 string[,] Questions = new string[,] { 
@@ -59,8 +59,10 @@ for (int i = 0; i < 9; i++)
                             Score += 10;
                         }
                         else if (y == Counter)
+                        {
+                            Score -= 10;
                             Console.ForegroundColor = ConsoleColor.Red;
-
+                        }
                         string Main = Questions[i, y].Substring(1);
                         Console.WriteLine($"{y}) {Main}");
                         Console.ForegroundColor = ConsoleColor.White;
