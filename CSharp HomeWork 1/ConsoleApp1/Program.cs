@@ -2,13 +2,6 @@ using System;
 
 namespace ConsoleApp1
 {
-    enum MathOperator
-    {
-        Add,
-        Subtract,
-        Multiply,
-        Divide,
-    };
     class Program
     {
 
