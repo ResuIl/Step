@@ -1,0 +1,15 @@
+C:\Users\Resul\Desktop\StepCPPS2\CSharp HomeWork 3\CSharp HomeWork 3\bin\Debug\net6.0\CSharp HomeWork 3.exe
+C:\Users\Resul\Desktop\StepCPPS2\CSharp HomeWork 3\CSharp HomeWork 3\bin\Debug\net6.0\CSharp HomeWork 3.deps.json
+C:\Users\Resul\Desktop\StepCPPS2\CSharp HomeWork 3\CSharp HomeWork 3\bin\Debug\net6.0\CSharp HomeWork 3.runtimeconfig.json
+C:\Users\Resul\Desktop\StepCPPS2\CSharp HomeWork 3\CSharp HomeWork 3\bin\Debug\net6.0\CSharp HomeWork 3.dll
+C:\Users\Resul\Desktop\StepCPPS2\CSharp HomeWork 3\CSharp HomeWork 3\bin\Debug\net6.0\CSharp HomeWork 3.pdb
+C:\Users\Resul\Desktop\StepCPPS2\CSharp HomeWork 3\CSharp HomeWork 3\obj\Debug\net6.0\CSharp HomeWork 3.csproj.AssemblyReference.cache
+C:\Users\Resul\Desktop\StepCPPS2\CSharp HomeWork 3\CSharp HomeWork 3\obj\Debug\net6.0\CSharp HomeWork 3.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Resul\Desktop\StepCPPS2\CSharp HomeWork 3\CSharp HomeWork 3\obj\Debug\net6.0\CSharp HomeWork 3.AssemblyInfoInputs.cache
+C:\Users\Resul\Desktop\StepCPPS2\CSharp HomeWork 3\CSharp HomeWork 3\obj\Debug\net6.0\CSharp HomeWork 3.AssemblyInfo.cs
+C:\Users\Resul\Desktop\StepCPPS2\CSharp HomeWork 3\CSharp HomeWork 3\obj\Debug\net6.0\CSharp HomeWork 3.csproj.CoreCompileInputs.cache
+C:\Users\Resul\Desktop\StepCPPS2\CSharp HomeWork 3\CSharp HomeWork 3\obj\Debug\net6.0\CSharp HomeWork 3.dll
+C:\Users\Resul\Desktop\StepCPPS2\CSharp HomeWork 3\CSharp HomeWork 3\obj\Debug\net6.0\refint\CSharp HomeWork 3.dll
+C:\Users\Resul\Desktop\StepCPPS2\CSharp HomeWork 3\CSharp HomeWork 3\obj\Debug\net6.0\CSharp HomeWork 3.pdb
+C:\Users\Resul\Desktop\StepCPPS2\CSharp HomeWork 3\CSharp HomeWork 3\obj\Debug\net6.0\CSharp HomeWork 3.genruntimeconfig.cache
+C:\Users\Resul\Desktop\StepCPPS2\CSharp HomeWork 3\CSharp HomeWork 3\obj\Debug\net6.0\ref\CSharp HomeWork 3.dll
