@@ -1,0 +1,15 @@
+C:\Users\Resul\Desktop\StepCPPS2\CSharp HomeWork 8\CSharp HomeWork 8\obj\Debug\net6.0\CSharp HomeWork 8.csproj.AssemblyReference.cache
+C:\Users\Resul\Desktop\StepCPPS2\CSharp HomeWork 8\CSharp HomeWork 8\obj\Debug\net6.0\CSharp HomeWork 8.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Resul\Desktop\StepCPPS2\CSharp HomeWork 8\CSharp HomeWork 8\obj\Debug\net6.0\CSharp HomeWork 8.AssemblyInfoInputs.cache
+C:\Users\Resul\Desktop\StepCPPS2\CSharp HomeWork 8\CSharp HomeWork 8\obj\Debug\net6.0\CSharp HomeWork 8.AssemblyInfo.cs
+C:\Users\Resul\Desktop\StepCPPS2\CSharp HomeWork 8\CSharp HomeWork 8\obj\Debug\net6.0\CSharp HomeWork 8.csproj.CoreCompileInputs.cache
+C:\Users\Resul\Desktop\StepCPPS2\CSharp HomeWork 8\CSharp HomeWork 8\bin\Debug\net6.0\CSharp HomeWork 8.exe
+C:\Users\Resul\Desktop\StepCPPS2\CSharp HomeWork 8\CSharp HomeWork 8\bin\Debug\net6.0\CSharp HomeWork 8.deps.json
+C:\Users\Resul\Desktop\StepCPPS2\CSharp HomeWork 8\CSharp HomeWork 8\bin\Debug\net6.0\CSharp HomeWork 8.runtimeconfig.json
+C:\Users\Resul\Desktop\StepCPPS2\CSharp HomeWork 8\CSharp HomeWork 8\bin\Debug\net6.0\CSharp HomeWork 8.dll
+C:\Users\Resul\Desktop\StepCPPS2\CSharp HomeWork 8\CSharp HomeWork 8\bin\Debug\net6.0\CSharp HomeWork 8.pdb
+C:\Users\Resul\Desktop\StepCPPS2\CSharp HomeWork 8\CSharp HomeWork 8\obj\Debug\net6.0\CSharp HomeWork 8.dll
+C:\Users\Resul\Desktop\StepCPPS2\CSharp HomeWork 8\CSharp HomeWork 8\obj\Debug\net6.0\refint\CSharp HomeWork 8.dll
+C:\Users\Resul\Desktop\StepCPPS2\CSharp HomeWork 8\CSharp HomeWork 8\obj\Debug\net6.0\CSharp HomeWork 8.pdb
+C:\Users\Resul\Desktop\StepCPPS2\CSharp HomeWork 8\CSharp HomeWork 8\obj\Debug\net6.0\CSharp HomeWork 8.genruntimeconfig.cache
+C:\Users\Resul\Desktop\StepCPPS2\CSharp HomeWork 8\CSharp HomeWork 8\obj\Debug\net6.0\ref\CSharp HomeWork 8.dll
