@@ -1,0 +1,23 @@
+C:\Users\Resul\Desktop\StepCPPS2\CSharp HomeWork 12\CSharp HomeWork 12\bin\Debug\net6.0\CSharp HomeWork 12.exe
+C:\Users\Resul\Desktop\StepCPPS2\CSharp HomeWork 12\CSharp HomeWork 12\bin\Debug\net6.0\CSharp HomeWork 12.deps.json
+C:\Users\Resul\Desktop\StepCPPS2\CSharp HomeWork 12\CSharp HomeWork 12\bin\Debug\net6.0\CSharp HomeWork 12.runtimeconfig.json
+C:\Users\Resul\Desktop\StepCPPS2\CSharp HomeWork 12\CSharp HomeWork 12\bin\Debug\net6.0\CSharp HomeWork 12.dll
+C:\Users\Resul\Desktop\StepCPPS2\CSharp HomeWork 12\CSharp HomeWork 12\bin\Debug\net6.0\CSharp HomeWork 12.pdb
+C:\Users\Resul\Desktop\StepCPPS2\CSharp HomeWork 12\CSharp HomeWork 12\bin\Debug\net6.0\Microsoft.Win32.SystemEvents.dll
+C:\Users\Resul\Desktop\StepCPPS2\CSharp HomeWork 12\CSharp HomeWork 12\bin\Debug\net6.0\System.Drawing.Common.dll
+C:\Users\Resul\Desktop\StepCPPS2\CSharp HomeWork 12\CSharp HomeWork 12\bin\Debug\net6.0\runtimes\win\lib\net6.0\Microsoft.Win32.SystemEvents.dll
+C:\Users\Resul\Desktop\StepCPPS2\CSharp HomeWork 12\CSharp HomeWork 12\bin\Debug\net6.0\runtimes\unix\lib\net6.0\System.Drawing.Common.dll
+C:\Users\Resul\Desktop\StepCPPS2\CSharp HomeWork 12\CSharp HomeWork 12\bin\Debug\net6.0\runtimes\win\lib\net6.0\System.Drawing.Common.dll
+C:\Users\Resul\Desktop\StepCPPS2\CSharp HomeWork 12\CSharp HomeWork 12\obj\Debug\net6.0\CSharp HomeWork 12.csproj.AssemblyReference.cache
+C:\Users\Resul\Desktop\StepCPPS2\CSharp HomeWork 12\CSharp HomeWork 12\obj\Debug\net6.0\CSharp HomeWork 12.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Resul\Desktop\StepCPPS2\CSharp HomeWork 12\CSharp HomeWork 12\obj\Debug\net6.0\CSharp HomeWork 12.AssemblyInfoInputs.cache
+C:\Users\Resul\Desktop\StepCPPS2\CSharp HomeWork 12\CSharp HomeWork 12\obj\Debug\net6.0\CSharp HomeWork 12.AssemblyInfo.cs
+C:\Users\Resul\Desktop\StepCPPS2\CSharp HomeWork 12\CSharp HomeWork 12\obj\Debug\net6.0\CSharp HomeWork 12.csproj.CoreCompileInputs.cache
+C:\Users\Resul\Desktop\StepCPPS2\CSharp HomeWork 12\CSharp HomeWork 12\obj\Debug\net6.0\CSharp HomeWork 12.csproj.CopyComplete
+C:\Users\Resul\Desktop\StepCPPS2\CSharp HomeWork 12\CSharp HomeWork 12\obj\Debug\net6.0\CSharp HomeWork 12.dll
+C:\Users\Resul\Desktop\StepCPPS2\CSharp HomeWork 12\CSharp HomeWork 12\obj\Debug\net6.0\refint\CSharp HomeWork 12.dll
+C:\Users\Resul\Desktop\StepCPPS2\CSharp HomeWork 12\CSharp HomeWork 12\obj\Debug\net6.0\CSharp HomeWork 12.pdb
+C:\Users\Resul\Desktop\StepCPPS2\CSharp HomeWork 12\CSharp HomeWork 12\obj\Debug\net6.0\CSharp HomeWork 12.genruntimeconfig.cache
+C:\Users\Resul\Desktop\StepCPPS2\CSharp HomeWork 12\CSharp HomeWork 12\obj\Debug\net6.0\ref\CSharp HomeWork 12.dll
+C:\Users\Resul\Desktop\StepCPPS2\CSharp HomeWork 12\CSharp HomeWork 12\bin\Debug\net6.0\Google.Api.CommonProtos.dll
+C:\Users\Resul\Desktop\StepCPPS2\CSharp HomeWork 12\CSharp HomeWork 12\bin\Debug\net6.0\Google.Protobuf.dll

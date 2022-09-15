@@ -1,0 +1,13 @@
+{
+  "version": 2,
+  "dgSpecHash": "p83zNYi/p0lTrtd+iqOpd2FrYrYSfu7eOdKMYEWFjhnihd4zlrtqBOwz3S+dmkaY5ccF1p0cl1JbacmzDt9ARg==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Resul\\Desktop\\StepCPPS2\\CSharp HomeWork 12\\CSharp HomeWork 12\\CSharp HomeWork 12.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Resul\\.nuget\\packages\\google.api.commonprotos\\2.6.0\\google.api.commonprotos.2.6.0.nupkg.sha512",
+    "C:\\Users\\Resul\\.nuget\\packages\\google.protobuf\\3.21.0\\google.protobuf.3.21.0.nupkg.sha512",
+    "C:\\Users\\Resul\\.nuget\\packages\\microsoft.win32.systemevents\\6.0.0\\microsoft.win32.systemevents.6.0.0.nupkg.sha512",
+    "C:\\Users\\Resul\\.nuget\\packages\\system.drawing.common\\6.0.0\\system.drawing.common.6.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}
