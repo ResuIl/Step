@@ -1,4 +1,3 @@
-﻿
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace CSharp_HomeWork_13
 {
+    [Serializable]
     internal class User
     {
         public string Name { get; set; }
