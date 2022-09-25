@@ -5,7 +5,12 @@ using Serilog;
 using Newtonsoft.Json;
 using System.Net.Mail;
 
-// Tarixe Göre Rezer Sistemi
+// Todo List ^^
+// Navigation Menu +
+// Logger +
+// Serialization +
+// Tarixe Göre Rezerv Sistemi +
+// Bug Fix +
 
 static class MainClass
 {
