@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace CSharp_HomeWork_13
 {
+    [Serializable]
     internal class Doctor
     {
         public string Name { get; set; }
@@ -23,7 +24,6 @@ namespace CSharp_HomeWork_13
             Worktime.Add("9:00-11:00");
             Worktime.Add("12:00-14:00");
             Worktime.Add("15:00-17:00");
-            Reserved.Add("1");
         }
 
         public override string ToString() => $"Id: {Id}\nName: {Name}\nSurname: {Surname}\nYear: {Year}"; 
