@@ -1,0 +1,33 @@
+[00:12:48 Information] Reservation Failed. By asda sdasd Wrong Date! Date: 12/12/0012 12:00:00 AM  
+[00:15:38 Warning] Exception Occurred  
+[00:16:32 Warning] Exception Occurred  
+[00:17:14 Warning] Exception Occurred System.FormatException: Input string was not in a correct format.
+   at System.Number.ThrowOverflowOrFormatException(ParsingStatus status, TypeCode type)
+   at System.Int32.Parse(String s)
+   at Program.Main() in C:\Users\Resul\Desktop\StepCPPS2\CSharp HomeWork 13\CSharp HomeWork 13\Program.cs:line 174
+ 
+[00:17:44 Warning] Input string was not in a correct format.  
+[00:17:57 Error] Input string was not in a correct format.  
+[22:59:04 Information] Reservation Failed. By asd asd Non Work Day!  
+[23:01:35 Information] Successfully Reserved By Resul Salam at 12:00-14:00  
+[23:02:11 Information] Successfully Reserved By Mal adam at 9:00-11:00  
+[23:11:47 Information] Successfully Reserved By Resul Black at 9:00-11:00  
+[23:15:33 Information] Successfully Reserved By Resul Black at 12:00-14:00 Pediatria  
+[14:53:33 Information] Successfully Reserved By Resul Black at 15:00-17:00 Pediatria  
+[14:54:22 Information] Successfully Reserved By Resul Black at 9:00-11:00 Pediatria  
+[14:54:37 Information] Reservation Failed. By Resul Black Non Work Day!  
+[14:54:58 Information] Successfully Reserved By Resul black at 9:00-11:00 Pediatria  
+[14:55:11 Information] Reservation Failed. By Resul black Non Empty Time.  
+[14:57:30 Information] Successfully Reserved By Resul Black at 12:00-14:00 Pediatria  
+[14:57:56 Error] Input string was not in a correct format.  
+[14:58:12 Information] Successfully Reserved By Resul black at 15:00-17:00 Pediatria  
+[14:59:52 Error] The specified string is not in the form required for an e-mail address.  
+[15:08:47 Error] s  
+[15:09:03 Error] The specified string is not in the form required for an e-mail address.  
+[15:09:12 Error] Wrong Phone Number!  
+[15:09:30 Error] The specified string is not in the form required for an e-mail address.  
+[21:38:26 Error] Wrong Phone Number!  
+[21:39:58 Information] Reservation Failed. By asdasd asdasd Non Empty Time.  
+[19:42:47 Error] The specified string is not in the form required for an e-mail address.  
+[20:22:44 Error] Wrong Phone Number!  
+[20:23:08 Error] Input string was not in a correct format.  
